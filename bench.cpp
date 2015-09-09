@@ -3,7 +3,7 @@
 
 using namespace std;
 
-double Solve(vector<vector<double> > t)
+double Solve(vector<vector<double> >& t)
 {	
   	for (int idxLine = 1; idxLine < t.size(); idxLine++){
   		for (int idxCol = 0; idxCol < t[idxLine].size(); idxCol++){
