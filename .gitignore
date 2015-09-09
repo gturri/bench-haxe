@@ -1,0 +1,6 @@
+.*.sw*
+Bench.class
+a.out
+cpp/
+haxe.js
+java/
