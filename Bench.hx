@@ -29,7 +29,7 @@ class Bench
   			} else if (idxCol == t[idxLine].length-1){
   				t[idxLine][idxCol] += t[idxLine-1][idxCol-1];
   			} else {
-  				t[idxLine][idxCol] += Math.max(t[idxLine-1][idxCol-1], t[idxLine][idxCol]);
+  				t[idxLine][idxCol] += Math.max(t[idxLine-1][idxCol-1], t[idxLine-1][idxCol]);
   			}
   		}
   	} 

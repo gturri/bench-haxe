@@ -12,7 +12,7 @@ double Solve(vector<vector<double> >& t)
   			} else if (idxCol == t[idxLine].size()-1){
   				t[idxLine][idxCol] += t[idxLine-1][idxCol-1];
   			} else {
-  				t[idxLine][idxCol] += max(t[idxLine-1][idxCol-1], t[idxLine][idxCol]);
+  				t[idxLine][idxCol] += max(t[idxLine-1][idxCol-1], t[idxLine-1][idxCol]);
   			}
   		}
   	}

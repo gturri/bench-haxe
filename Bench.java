@@ -40,7 +40,7 @@ class Bench {
   			} else if (idxCol == t.get(idxLine).size()-1){
   				t.get(idxLine).set(idxCol, t.get(idxLine).get(idxCol) + t.get(idxLine-1).get(idxCol-1));
   			} else {
-  				t.get(idxLine).set(idxCol, t.get(idxLine).get(idxCol) + Math.max(t.get(idxLine-1).get(idxCol-1), t.get(idxLine).get(idxCol)));
+  				t.get(idxLine).set(idxCol, t.get(idxLine).get(idxCol) + Math.max(t.get(idxLine-1).get(idxCol-1), t.get(idxLine-1).get(idxCol)));
   			}
   		}
   	}
