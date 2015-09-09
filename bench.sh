@@ -10,3 +10,8 @@ time java -cp . Bench
 
 haxe -main Bench -java java
 time java -jar java/Bench.jar
+
+time nodejs bench.js
+
+haxe -main Bench -js haxe.js
+time nodejs haxe.js
