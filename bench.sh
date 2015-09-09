@@ -15,3 +15,8 @@ time nodejs bench.js
 
 haxe -main Bench -js haxe.js
 time nodejs haxe.js
+
+pushd rust
+cargo build --release
+time target/release/bench
+popd
