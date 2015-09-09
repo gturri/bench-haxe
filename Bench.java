@@ -26,7 +26,7 @@ class Bench {
     l4.add(3.0);
 
     double sum = 0.0;
-    for ( int i = 0 ; i < 1000000 ; i++ ){
+    for ( int i = 0 ; i < 10000000 ; i++ ){
       sum += solve(array);
     }
     System.out.println(sum);

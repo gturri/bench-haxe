@@ -14,7 +14,7 @@ class Bench
   	
   	
   	var sum = 0.0;
-  	for ( i in 0...1000000 ){
+  	for ( i in 0...10000000 ){
 	  	sum += Solve(array);
     }
     trace(sum);
