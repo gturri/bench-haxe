@@ -3,7 +3,7 @@ class Bench
   static public function main():Void 
   {
   	//read input
-  	var array = new Array<Array<Int>>();
+  	var array = new Array<Array<Float>>();
   	
   	array = [
 			  	[3],
@@ -20,7 +20,7 @@ class Bench
     trace(sum);
   }
   
-  static private function Solve(t:Array<Array<Int>>):Int
+  static private function Solve(t:Array<Array<Float>>):Float
   {
   	for ( idxLine in (1...t.length) ){
   		for ( idxCol in (0...t[idxLine].length) ){
@@ -29,14 +29,14 @@ class Bench
   			} else if (idxCol == t[idxLine].length-1){
   				t[idxLine][idxCol] += t[idxLine-1][idxCol-1];
   			} else {
-  				t[idxLine][idxCol] += cast(Math.max(t[idxLine-1][idxCol-1], t[idxLine][idxCol]), Int);
+  				t[idxLine][idxCol] += Math.max(t[idxLine-1][idxCol-1], t[idxLine][idxCol]);
   			}
   		}
   	} 
   
-    var maxi = -1;
+    var maxi = -1.0;
     for (elem in t[t.length-1]){
-    	maxi = cast(Math.max(maxi, elem), Int);
+    	maxi = Math.max(maxi, elem);
     }
   	return maxi;
   }

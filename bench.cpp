@@ -3,7 +3,7 @@
 
 using namespace std;
 
-int Solve(vector<vector<int> > t)
+double Solve(vector<vector<double> > t)
 {	
   	for (int idxLine = 1; idxLine < t.size(); idxLine++){
   		for (int idxCol = 0; idxCol < t[idxLine].size(); idxCol++){
@@ -17,9 +17,9 @@ int Solve(vector<vector<int> > t)
   		}
   	}
   	
-    int maxi = -1;
+    double maxi = -1;
     for (int i = 0; i < t[t.size()-1].size(); i++){
-    	int elem = t[t.size()-1][i];
+    	double elem = t[t.size()-1][i];
     	maxi = max(maxi, elem);
     }
   	return maxi;
@@ -27,23 +27,23 @@ int Solve(vector<vector<int> > t)
 
 int main()
 {
-	vector<vector<int> > array;
-	vector<int> l1;
+	vector<vector<double> > array;
+	vector<double> l1;
 	l1.push_back(3);
 	array.push_back(l1);
 	
-	vector<int> l2;
+	vector<double> l2;
 	l2.push_back(7);
 	l2.push_back(4);
 	array.push_back(l2);
 
-	vector<int> l3;
+	vector<double> l3;
 	l3.push_back(2);
 	l3.push_back(4);
 	l3.push_back(6);	
 	array.push_back(l3);
 	
-	vector<int> l4;
+	vector<double> l4;
 	l4.push_back(8);
 	l4.push_back(5);	
 	l4.push_back(9);
