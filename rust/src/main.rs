@@ -6,17 +6,17 @@ fn main() {
                vec![8f32, 5f32, 9f32, 3f32]];
 
   let mut sum = 0f32;
-  for i in 0..10000000 {
+  for _ in 0..10000000 {
      sum += solve(&mut v);
   }
   println!("{}", sum);
 }
 
 fn solve(t: &mut Vec<Vec<f32>>) -> f32 {
-  let mut prev_line = &mut vec![];
+  let mut prev_line = &vec![];
   for (idx_line, cur_line) in t.into_iter().enumerate() {
     if idx_line != 0 {
-      update_row(&mut prev_line, cur_line);
+      update_row(&prev_line, cur_line);
     }
     prev_line = cur_line;
   }
@@ -32,7 +32,7 @@ fn max_in_row(row: &Vec<f32>) -> f32 {
   maxi
 }
 
-fn update_row(prev_line: &mut Vec<f32>, cur_line: &mut Vec<f32>){
+fn update_row(prev_line: &Vec<f32>, cur_line: &mut Vec<f32>){
   for idx_col in 0..cur_line.len(){
     if idx_col == 0 {
       cur_line[idx_col] += prev_line[0];
