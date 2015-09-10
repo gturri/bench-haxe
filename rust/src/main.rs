@@ -13,23 +13,35 @@ fn main() {
 }
 
 fn solve(t: &mut Vec<Vec<f32>>) -> f32 {
-  for idxLine in 1..t.len() {
-    for idxCol in 0..t[idxLine].len() {
-      if idxCol == 0 {
-        t[idxLine][idxCol] += t[idxLine-1][0];
-      } else if idxCol == t[idxLine].len() - 1 {
-        t[idxLine][idxCol] += t[idxLine-1][idxCol - 1];
-      } else {
-        t[idxLine][idxCol] += my_max(t[idxLine-1][idxCol-1], t[idxLine-1][idxCol]);
-      }
+  let mut prev_line = &mut vec![];
+  for (idx_line, cur_line) in t.into_iter().enumerate() {
+    if idx_line != 0 {
+      update_row(&mut prev_line, cur_line);
     }
+    prev_line = cur_line;
   }
 
-  let mut maxi = 1.0f32;
-  for item in t[t.len()-1].iter() {
+  max_in_row(&prev_line)
+}
+
+fn max_in_row(row: &Vec<f32>) -> f32 {
+  let mut maxi = -1.0f32;
+  for item in row {
     maxi = my_max(maxi, *item);
   }
   maxi
+}
+
+fn update_row(prev_line: &mut Vec<f32>, cur_line: &mut Vec<f32>){
+  for idx_col in 0..cur_line.len(){
+    if idx_col == 0 {
+      cur_line[idx_col] += prev_line[0];
+    } else if idx_col == cur_line.len() - 1 {
+      cur_line[idx_col] += prev_line[idx_col - 1];
+    } else {
+      cur_line[idx_col] += my_max(prev_line[idx_col-1], prev_line[idx_col]);
+    }
+  }
 }
 
 fn my_max(a: f32, b: f32) -> f32 {
