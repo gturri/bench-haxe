@@ -6,21 +6,21 @@ fn main() {
                vec![8f32, 5f32, 9f32, 3f32]];
 
   let mut sum = 0f32;
-  for i in 0..10000000 {
+  for _ in 0..10000000 {
      sum += solve(&mut v);
   }
   println!("{}", sum);
 }
 
 fn solve(t: &mut Vec<Vec<f32>>) -> f32 {
-  for idxLine in 1..t.len() {
-    for idxCol in 0..t[idxLine].len() {
-      if idxCol == 0 {
-        t[idxLine][idxCol] += t[idxLine-1][0];
-      } else if idxCol == t[idxLine].len() - 1 {
-        t[idxLine][idxCol] += t[idxLine-1][idxCol - 1];
+  for idx_line in 1..t.len() {
+    for idx_col in 0..t[idx_line].len() {
+      if idx_col == 0 {
+        t[idx_line][idx_col] += t[idx_line-1][0];
+      } else if idx_col == t[idx_line].len() - 1 {
+        t[idx_line][idx_col] += t[idx_line-1][idx_col - 1];
       } else {
-        t[idxLine][idxCol] += my_max(t[idxLine-1][idxCol-1], t[idxLine-1][idxCol]);
+        t[idx_line][idx_col] += my_max(t[idx_line-1][idx_col-1], t[idx_line-1][idx_col]);
       }
     }
   }
