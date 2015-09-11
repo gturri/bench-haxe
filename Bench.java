@@ -24,6 +24,7 @@ class Bench {
     l4.add(5.0);
     l4.add(9.0);
     l4.add(3.0);
+    array.add(l4);
 
     double sum = 0.0;
     for ( int i = 0 ; i < 10000000 ; i++ ){
